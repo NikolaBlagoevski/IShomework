@@ -1,0 +1,37 @@
+﻿@model ECinema.Web.Models.Domain.ECinemaTicket
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>ECinemaTicket</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.idMovie)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.idMovie)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.priceOfTicket)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.priceOfTicket)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.dateValid)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.dateValid)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

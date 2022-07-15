@@ -1,0 +1,46 @@
+﻿@model List<ECinema.Web.Models.Domain.ECinemaTicket>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    
+    <div class="m-3">
+        <a class="btn btn-success" asp-controller="ECinemaTickets" asp-action="Create">Add new ticket</a>
+    </div>
+
+    @for(int i = 0; i< Model.Count; i++){
+        var item = Model[i];
+        if(i%3 == 0)
+        {
+            @:<div class="row">
+        }
+
+        <div class="col-md-3 m-4">
+            <div class="card" style="width:18rem; height: 30rem">
+                <img class="card-img-top" style="height:50%" 
+                     src="https://www.google.com/search?q=infinity+wars&tbm=isch&ved=2ahUKEwiRuf35x_r4AhXghf0HHf5zDWYQ2-cCegQIABAA&oq=infinity+wars&gs_lcp=CgNpbWcQAzIFCAAQgAQyBQgAEIAEMgUIABCABDIFCAAQgAQyBQgAEIAEMgUIABCABDIFCAAQgAQyBQgAEIAEMgUIABCABDIFCAAQgAQ6BAgAEEM6BAgjECc6BAgAEB46BggAEB4QBToECAAQGDoGCAAQChAYULAMWJ80YJ41aApwAHgAgAF-iAGsE5IBBDkuMTWYAQCgAQGqAQtnd3Mtd2l6LWltZ8ABAQ&sclient=img&ei=0jDRYpGIPOCL9u8P_ue1sAY&rlz=1C1GCEA_enMK979MK979#imgrc=t090il8Bsxku3M"
+                     alt="Infinity wars"
+                     />
+                <div class="card-body">
+                    <h5 class="card-title">Infinity Wars</h5>
+                    <p class="card-text">A short description about the movie infinity wars.</p>
+                    <h6>Price: @item.priceOfTicket</h6>
+                </div>
+
+                <div class="card-footer">
+                    <a asp-controller="ECinemaTickets" asp-action="AddTicketToCart" class="btn btn-info">Add to Cart</a>
+                    <a asp-controller="ECinemaTickets" asp-action="Edit" asp-route-id="@item.id" class="btn btn-secondary">Edit</a>
+                </div>
+            </div>
+        </div>
+
+
+        if(i%3 == 2)
+        {
+            @:</div>
+        }
+    }
+</div>
